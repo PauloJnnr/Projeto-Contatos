@@ -5,7 +5,7 @@ const BotaoAdicionar = () => {
     <>
       <Circulo to="/cadastro">
         <span className="icone">+</span>
-        <span className="texto">Adicionar Tarefa</span>
+        <span className="texto">Adicionar Contato</span>
       </Circulo>
     </>
   )

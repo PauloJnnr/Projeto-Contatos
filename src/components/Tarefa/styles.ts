@@ -1,76 +1,69 @@
 import styled from 'styled-components'
 import variaveis from '../../styles/variaveis'
 
-import * as enums from '../../utils/enums/tarefa'
-import { Botao } from '../../styles'
-
-type TagProps = {
-  prioridade?: enums.Prioridade
-  status?: enums.Status
-  parametro: 'status' | 'prioridade'
-}
-
-function retornaCorDeFundo(props: TagProps): string {
-  if (props.parametro === 'status') {
-    if (props.status === enums.Status.PENDENTE) return variaveis.amarelo
-    if (props.status === enums.Status.CONCLUIDO) return variaveis.verde
-  } else if (props.parametro === 'prioridade') {
-    if (props.prioridade === enums.Prioridade.URGENTE) return variaveis.vermelho
-    if (props.prioridade === enums.Prioridade.IMPORTANTE)
-      return variaveis.amarelo2
-  }
-  return '#ccc'
-}
-
 export const Card = styled.div`
   background-color: #fcfcfc;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 16px;
   margin-bottom: 32px;
   border-radius: 16px;
-
-  label {
-    display: flex;
-    align-items: center;
-    margin-bottom: 16px;
-  }
 `
 
 export const Titulo = styled.h3`
   font-size: 18px;
   font-weight: bold;
-  margin-left: 8px;
+  margin-bottom: 16px;
+  color: ${variaveis.azulEscuro};
 `
 
-export const Tag = styled.span<TagProps>`
-  padding: 4px 8px;
-  font-size: 10px;
-  font-weight: bold;
-  color: #fff;
-  background-color: ${(props) => retornaCorDeFundo(props)};
-  border-radius: 8px;
-  margin-right: 16px;
-  display: inline-block;
+export const CampoContato = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
 `
 
-export const Descricao = styled.textarea`
-  color: #8b8b8b;
+export const Label = styled.label`
   font-size: 14px;
-  line-height: 24px;
-  font-family: 'Roboto Mono', monospace;
-  display: block;
-  width: 100%;
-  margin: 16px 0;
-  resize: none;
-  border: none;
-  background-color: transparent;
+  font-weight: bold;
+  color: ${variaveis.azulEscuro};
+  margin-bottom: 8px;
 `
 
-export const BarraAcoes = styled.div`
+export const Texto = styled.p`
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+  word-break: break-word;
+`
+
+export const Input = styled.input`
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: 'Roboto', sans-serif;
+
+  &:focus {
+    outline: none;
+    border-color: ${variaveis.azul};
+    box-shadow: 0 0 0 3px rgba(16, 100, 233, 0.1);
+  }
+`
+
+export const AcoesBotao = styled.div`
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 16px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 16px;
-`
 
-export const BotaoCancelarRemover = styled(Botao)`
-  background-color: ${variaveis.vermelho};
+  button {
+    flex: 1;
+  }
 `

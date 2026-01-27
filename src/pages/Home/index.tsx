@@ -1,12 +1,19 @@
+import { useState } from 'react'
 import BotaoAdicionar from '../../components/BotaoAdicionar'
 import BarraLateral from '../../containers/BarraLateral'
-import ListaDeTarefas from '../../containers/ListaDeTarefas'
+import ListaDeContatos from '../../containers/ListaDeTarefas'
 
 const Home = () => {
+  const [termoBusca, setTermoBusca] = useState('')
+
   return (
     <>
-      <BarraLateral mostrarFiltros />
-      <ListaDeTarefas />
+      <BarraLateral
+        mostrarFiltros={false}
+        onFiltroChange={setTermoBusca}
+        termoFiltro={termoBusca}
+      />
+      <ListaDeContatos termoBusca={termoBusca} />
       <BotaoAdicionar />
     </>
   )
