@@ -43,7 +43,7 @@ const Contato = ({
   }
 
   return (
-    <S.Card>
+    <S.Card id={`contato-${id}`}>
       <S.Titulo>
         {estaEditando ? 'Editar Contato' : 'Detalhes do Contato'}
       </S.Titulo>
